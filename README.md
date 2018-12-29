@@ -1,24 +1,16 @@
-# README
+# Task Force - Video Game Library Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Flatiron school rails portfolio project by Robin Doirin
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+After cloning the repo, run bundle to install dependencies. To migrate your local database, run rake db:migrate. To start the application on your machine, run 'rails s' from the application root.  In a browser, go to http://localhost:3000/ to begin.
 
-* System dependencies
+## Contributing
 
-* Configuration
+Bug reports and pull requests are welcome on GitHub at https://github.com/emhopkins/sinatra-portfolio-project-travel-site. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
-* Database creation
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

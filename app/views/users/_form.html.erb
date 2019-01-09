@@ -1,28 +1,35 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-      </h2>
-       <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class='field'>
+  <%= f.text_field :name, placeholder: 'Name', value: user.name %><br />
+</div>
+<div class='field' >
+  <%= f.password_field :password, placeholder: 'Password' %><br />
+</div>
+<div class='field'>
+  <%= f.password_field :password_confirmation,
+  placeholder: 'Password Confirmation' %>
+</div><br />
+<%= f.fields_for :addresses do |ff| %>
+  <fieldset>
+    <legend>
+      <%= content_tag(:h2, "#{ff.object.address_type} Address") %>
+    </legend>
+    <div class='field'>
+      <%= ff.text_field :street_1, placeholder: 'Street 1' %><br />
     </div>
-  <% end %>
-   <div class="form-group">
-    <%= f.label :email %>
-    <br>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
-   <div class="form-group">
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password, class: "form-control" %>
-   <div class="actions">
-    <br/>
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
-
+    <div class='field'>
+      <%= ff.text_field :street_2, placeholder: 'Street 2' %><br />
+    </div>
+    <div class='field'>
+      <%= ff.text_field :city, placeholder: 'City' %><br />
+    </div>
+    <div class='field'>
+      <%= ff.text_field :state, placeholder: 'State' %><br />
+    </div>
+    <div class='field'>
+      <%= ff.text_field :zipcode, placeholder: 'ZIP Code' %><br />
+    </div>
+    <div class='field'>
+      <%= ff.hidden_field :address_type %><br />
+    </div>
+  </fieldset>
 <% end %>

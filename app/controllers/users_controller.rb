@@ -4,9 +4,15 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def show
+    if current_user
+        @user = User.new
+    else
+        redirect_to sign_in_path
+    end
   end
 
   def new
@@ -19,15 +25,23 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Task Force!!"
        redirect_to @user
     else
-    render 'new'
+      render 'new'
     end
   end
 
   def update
+    @user = User.find(params[:id])
+      if @user.update_attributes(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to @user
+      else
+        render 'edit'
+      end
   end
 
   def destroy
-
+    log_out
+    redirect_to root_url
   end
 
   private

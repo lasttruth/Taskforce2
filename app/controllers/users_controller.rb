@@ -8,11 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-        @user = User.new
-    else
-        redirect_to sign_in_path
-    end
+
   end
 
   def new

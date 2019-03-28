@@ -3,7 +3,10 @@ module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
   end
-
+  # method to check for user validations
+  def current_user?(user)
+    user == current_user
+  end
   # Returns the current logged-in user (if any).
   def current_user
     if session[:user_id]

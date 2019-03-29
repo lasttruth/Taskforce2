@@ -1,2 +1,11 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+<h1>BACKLOG OF YOUR GAMES</h1>
+<% @games.each do |game| %>
+  <div class="w3-example">
+
+    <h4><%= game.title %></h4>
+    <%= bootstrap_progress_bar(33, :color => 'info', :striped => true) %>
+    <%= link_to "View", game_path(game), :class => 'btn btn-default' %>
+
+  </div>
+
+<%end%>

@@ -1,2 +1,14 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="well">
+
+
+<h2><%= @game.title %></h2>
+<p><%= @game.genre %></p>
+<p><%= @game.platform %></p>
+
+<hr>
+<%= link_to "edit", edit_game_path(@game), :class => 'btn btn-default'%>
+<%= link_to "Delete", game_path(@game), method: :delete,
+                                      data: {confirm:"Did you realize you don't have the game? lol"},
+                                      :class => 'btn btn-danger'%>
+
+</div>

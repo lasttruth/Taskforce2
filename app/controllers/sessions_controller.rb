@@ -1,5 +1,11 @@
 class SessionsController < ApplicationController
+
   def new
+    if current_user
+      redirect_to users_path
+    else
+      @user = User.new
+    end
    end
 
    def create
@@ -10,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
-      render 'new'
+      redirect_to login_path
     end
    end
 
@@ -18,4 +24,5 @@ class SessionsController < ApplicationController
      log_out
      redirect_to root_url
    end
+
 end

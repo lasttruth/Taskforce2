@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :games, only: [:index, :show]
   end
-  root 'users#index'
+  root 'static_pages#home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'

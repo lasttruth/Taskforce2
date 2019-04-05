@@ -6,8 +6,8 @@
 <p><%= @game.platform %></p>
 
 <hr>
-<%= link_to "edit", edit_game_path(@game), :class => 'btn btn-default'%>
-<%= link_to "Delete", game_path(@game), method: :delete,
+<%= link_to "edit", edit_user_game_path(@game), :class => 'btn btn-default'%>
+<%= link_to "Delete", user_game_path(@game), method: :delete,
                                       data: {confirm:"Did you realize you don't have the game? lol"},
                                       :class => 'btn btn-danger'%>
 

@@ -9,14 +9,14 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
+    @game = Game.new(user_id: params[:user_id])
   end
 
   def create
     #render plain: params[:game].inspect
     @game = Game.new(game_params)
     if (@game.save)
-      redirect_to @game
+      redirect_to user_games_path
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if (@game.update(game_params))
-      redirect_to @game
+      redirect_to user_games_path
     else
       render 'edit'
     end
@@ -39,12 +39,12 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
 
-    redirect_to games_path
+    redirect_to user_games_path
   end
 
 private
 
   def game_params
-    params.require(:game).permit(:title, :genre, :platform)
+    params.require(:game).permit(:title, :genre, :platform, :user_id)
   end
 end

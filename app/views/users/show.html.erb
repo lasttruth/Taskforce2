@@ -1,11 +1,3 @@
 <h1>Users#show</h1>
 
-<div class="col-md-8">
-    <% if @user.games.any? %>
-      <h3>Microposts (<%= @user.games.count %>)</h3>
-      <ol class="microposts">
-        <%= render @games %>
-      </ol>
-      <%= will_paginate @games %>
-    <% end %>
-  </div>
+<%= link_to "New Game", new_user_game_path(@user) %>

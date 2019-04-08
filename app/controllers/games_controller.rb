@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
-
+  before_action :logged_in_user, only: [:index, :edit, :update]
+  
   def index
     @games = Game.all
   end
@@ -47,4 +48,15 @@ private
   def game_params
     params.require(:game).permit(:title, :genre, :platform, :user_id)
   end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+  # To check if any user is not changing other users data
+
+
+
 end

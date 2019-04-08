@@ -1,14 +1,14 @@
-<%= form_for :game, url: user_games_path do |f| %>
+<%= form_for @game, url: user_games_path do |f| %>
   <% if @game.errors.any? %>
     <% @game.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger"><%= msg%></div>
     <% end %>
   <% end %>
   <%= f.label :title %>:
-  <%= f.text_field :title, {:class => 'form-control'} %><br />
+  <%= f.text_field :title, {:class => 'form-control'} %><br/>
 
   <%= f.label :genre %>:
-  <%= f.text_field :genre, {:class => 'form-control'} %><br />
+  <%= f.text_field :genre, {:class => 'form-control'} %><br/>
 
   <%= f.label :platform %>:
   <%= f.text_field :platform, {:class => 'form-control'} %><br />

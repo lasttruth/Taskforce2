@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update]
-  
+
   def index
-    @games = Game.all
+    @games = Game.all.ordered
   end
 
   def show

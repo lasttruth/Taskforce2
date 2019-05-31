@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def hello
     render html: "New Begining I guess"
   end
+
+  def authenticate
+    redirect_to :login unless logged_in?
+  end
 end

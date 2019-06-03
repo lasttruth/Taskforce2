@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190531170759) do
+ActiveRecord::Schema.define(version: 20190603144110) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20190531170759) do
     t.string "first_name"
     t.string "last_name"
     t.string "picture"
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
 end

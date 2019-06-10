@@ -7,5 +7,10 @@
 
   <h7><a href="https://www.google.com/">(Turn Back Now)</a></h3>
 <br>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% if logged_in? %>
+    <%= link_to "Get Started", users_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+
 </div>

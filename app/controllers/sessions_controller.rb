@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
      if auth_hash = request.env["omniauth.auth"]
        user = User.find_or_create_by_omniauth(auth_hash)
        session[:user_id] = user.id
-
+       flash[:success] = "Welcome to Task Force!"
        redirect_to root_path
       else
 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         render 'new'
       end
     end
-    
+
    end
 
    def googleAuth

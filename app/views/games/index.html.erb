@@ -1,16 +1,17 @@
-<h1>BACKLOG OF YOUR GAMES</h1>
+<h1> BACKLOG OF YOUR GAMES</h1>
 <% @games.each do |game| %>
   <div class="w3-example">
 
-    <h4><%= link_to game.title, user_game_path(game.title, game) %></h4>
+    <% if current_user %>
 
-    <%= link_to "Edit", edit_user_game_path(game.title, game) %>
+        <%= link_to game.title, user_game_path(game.title, game) %>
 
+        <%= link_to "Edit", edit_user_game_path(game.title, game) %>
 
   </div>
 
+    <% end %>
 
-
-<%end%>
+<% end %>
 
 <%= link_to "New Game", new_user_game_path %>

@@ -1,6 +1,12 @@
 <h1><%= @user.email %>'s profile</h1>
 
 
+<% if current_user?(@user) %>
 
-<%= link_to "Your List", user_games_path(@user), :class => 'btn btn-default' %>
-<%= link_to "New Game", new_user_game_path(@user) %>
+  <%= link_to "Your List", user_games_path(@user), :class => 'btn btn-default' %>
+  <%= link_to "New Game", new_user_game_path(@user) %>
+
+<% else %>
+  <p>You can view this person's list yet... coming soon...</p>
+
+<% end %>

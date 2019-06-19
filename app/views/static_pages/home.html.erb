@@ -5,11 +5,13 @@
     Welcome to the World Of Omikron
   </h2>
 
-  <h7><a href="https://www.google.com/">(Turn Back Now)</a></h3>
+
 <br>
   <% if logged_in? %>
     <%= link_to "Get Started", users_path, class: "btn btn-lg btn-primary" %>
   <% else %>
+  
+    <h7><a href="https://www.google.com/">(Turn Back Now)</a></h3>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   <% end %>
 

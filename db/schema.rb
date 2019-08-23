@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190619010840) do
+ActiveRecord::Schema.define(version: 20190823181025) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -22,11 +22,16 @@ ActiveRecord::Schema.define(version: 20190619010840) do
     t.index ["user_id", "created_at"], name: "index_games_on_user_id_and_created_at"
   end
 
-  create_table "games_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "game_id", null: false
-    t.index ["game_id"], name: "index_games_users_on_game_id"
-    t.index ["user_id"], name: "index_games_users_on_user_id"
+  create_table "statuses", force: :cascade do |t|
+    t.string "condition"
+    t.integer "completion"
+    t.integer "max_completion"
+    t.integer "user_id"
+    t.integer "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_statuses_on_game_id"
+    t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,13 +39,6 @@ ActiveRecord::Schema.define(version: 20190619010840) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "picture"
-    t.string "google_token"
-    t.string "google_refresh_token"
   end
 
 end

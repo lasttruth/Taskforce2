@@ -1,12 +1,15 @@
 <div class="well">
 
 
-<h1><%= @game.title %></h2>
+<h1><%= @game.title %> </h2>
 <p><%= @game.genre %></p>
 <p><%= @game.platform %></p>
+<%= render @game.statuses %>
+
 
 <hr>
 <%= link_to "edit", edit_user_game_path(@game), :class => 'btn btn-default'%>
+<%= link_to @game.title, new_user_game_status_path(@game.users, @game.id), :class => 'btn btn-default'%>
 <%= link_to "Delete", user_game_path(@game), method: :delete,
                                       data: {confirm:"Did you realize you don't have the game? lol"},
                                       :class => 'btn btn-danger'%>

@@ -1,0 +1,12 @@
+<%= form_for :status, url: user_game_statuses_path do |f| %>
+
+
+  <%= f.label :condition %>:
+  <%= f.text_field :condition, {:class => 'form-control'} %><br />
+
+  <%= f.label :completion %>:
+  <%= f.number_field :completion, {:class => 'form-control'} %><br />
+
+  <%= f.submit %>
+
+<%end%>

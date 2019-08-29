@@ -1,4 +1,11 @@
 <h1> BACKLOG OF YOUR GAMES</h1>
+
+<%= form_tag(user_games_path, method: :get) do %>
+  game <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', title: nil %>
+<% end %>
+
+
 <% @games.each do |game| %>
   <div class="w3-example">
 

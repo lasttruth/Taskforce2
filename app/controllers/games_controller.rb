@@ -4,8 +4,7 @@ class GamesController < ApplicationController
   before_action :current_user,   only: [:edit, :update]
   def index
 
-    @games = Game.ordered
-
+    @games = Game.search(params[:search])
   end
 
   def show
@@ -50,10 +49,18 @@ class GamesController < ApplicationController
     redirect_to user_games_path
   end
 
+  def search
+    if params[:title]
+      @game = Game.where('title LIKE ?', "%#{params[:title]}%")
+    else
+        @game = Game.all
+    end
+  end
+
 private
 
   def game_params
-    params.require(:game).permit(:title, :genre, :platform, :user_id)
+    params.require(:game).permit(:title, :genre, :platform, :user_id, :search)
   end
 
   def logged_in_user
